@@ -15,9 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import QRCode from 'react-native-qrcode-svg';
 
-import CustomButton from '../../components/Button';
-
-const AbrirMesa = () => {
+const CirarMesa = () => {
  const navigation = useNavigation();
 
  const [inputText, setInputText] = useState('');
@@ -64,49 +62,6 @@ const AbrirMesa = () => {
   console.log('Mesa created:', newQrDataObj);
  };
 
- const handleNavegarPedidoMesa = (mesa) => {
-  navigation.navigate('PedidosMesaScreen', {
-   mesa
-  });
- };
- const handleExluirMesa = (mesa) => {
-  alert('Deseja Excluir a Mesa');
- };
-
- const VisualizarMesas = () => {
-  return (
-   // ScrollView praca
-   <ScrollView
-    horizontal
-    contentContainerStyle={styles.mesaPraca}>
-    {mesasCriadas.reverse().map((mesa, index) => (
-     <View
-      style={styles.mesaCard}
-      key={index}>
-      <Text style={styles.title}>
-       Mesa: {mesa.numeroMesa}
-      </Text>
-      <Text style={styles.title}>
-       Garçom: {mesa.garcon}
-      </Text>
-      <View style={styles.mesaButton}>
-       <CustomButton
-        title='Ver Pedidos'
-        onPress={() =>
-         handleNavegarPedidoMesa(mesa)
-        }
-       />
-       <CustomButton
-        title='Excluir Mesa'
-        onPress={() => handleExluirMesa(mesa)}
-       />
-      </View>
-     </View>
-    ))}
-   </ScrollView>
-  );
- };
-
  return (
   <View style={styles.container}>
    <View style={styles.containerQrcode}>
@@ -116,7 +71,7 @@ const AbrirMesa = () => {
     {/*verificar tempo mesa renovar praca */}
     <QRCode
      value={qrData || 'NA'}
-     size={240}
+     size={200}
      color='black'
      backgroundColor='white'
      logoSize={20}
@@ -141,16 +96,14 @@ const AbrirMesa = () => {
      placeholder='Mesa'
     />
     <View style={styles.mesaButton}>
-     <CustomButton
+     <Button
       onPress={handleCriaMesaQr}
       title='Abrir uma Mesa'
      />
     </View>
    </View>
 
-   <View>
-    <VisualizarMesas />
-   </View>
+   
   </View>
  );
 };
@@ -204,4 +157,4 @@ const styles = StyleSheet.create({
  }
 });
 
-export default AbrirMesa;
+export default CirarMesa;

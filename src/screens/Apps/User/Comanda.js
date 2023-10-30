@@ -1,41 +1,41 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
  View,
  Text,
- StyleSheet
+ StyleSheet,
+ Pressable
 } from 'react-native';
 
 const Comanda = () => {
- // Dados da comanda vindo do banco de dados ou da API
  const listaComanda = [
   {
    itemComanda: 'Arroz Com Fritas',
-   quantidade: 2,
    preco: '835.40'
-  },
-  {
-   itemComanda: 'Coca Cola 2l',
-   quantidade: 1,
-   preco: '25.00'
-  },
-  {
-   itemComanda: 'Agua Mineral 500ml',
-   quantidade: 2,
-   preco: '5.40'
   }
-  // Adicione mais itens da comanda aqui
  ];
+
+ const [quantidadeItens, setQuantidadeItens] =
+  useState({});
+
+ const handleContIten = (itemComanda) => {
+  setQuantidadeItens((prevQuantidadeItens) => {
+   const updatedQuantidadeItens = {
+    ...prevQuantidadeItens
+   };
+   updatedQuantidadeItens[itemComanda] =
+    (updatedQuantidadeItens[itemComanda] || 0) +
+    1;
+   return updatedQuantidadeItens;
+  });
+ };
 
  return (
   <View style={styles.container}>
    <View style={styles.header}>
     <Text style={styles.headerTitleitemComanda}>
      DESCRIÇÃO
-    </Text>
-    <Text style={styles.headerTitlePreco}>
-     QUANT.
     </Text>
     <Text style={styles.headerTitlePreco}>
      PREÇO
@@ -49,37 +49,26 @@ const Comanda = () => {
      <Text style={styles.comandaTitle}>
       {item.itemComanda}
      </Text>
-
-     <Text style={styles.comandaPreco}>
-      {item.quantidade}
-     </Text>
-
+     <Pressable
+      onPress={() =>
+       handleContIten(item.itemComanda)
+      }>
+      <Text style={styles.comandaPreco}>
+       {quantidadeItens[item.itemComanda] || 0}
+      </Text>
+     </Pressable>
      <Text style={styles.comandaPreco}>
       {item.preco}
      </Text>
     </View>
    ))}
 
-   <Text style={styles.taxaMesa}>
-    Taxa : 10% da Mesa {''}
-    {/* Opcinal*/}
-   </Text>
-   <Text style={styles.taxaMesa}>
-    Taxa Couver : 50.00 da Mesa {''}
-    {/* Opcinal*/}
-   </Text>
-     {/*Desejo alinhar a Direita */}
    <View style={styles.mesaRigth}>
     <Text style={styles.mesaTotal}>
-     Valor: 1.000,00 {''}
-     {/*calculo dos itens*/}
+     Valor: 1.000,00
     </Text>
     <Text style={styles.mesaTotal}>
-     Final: 1.010.00,00 {''}
-     {/*
-     Soma dos valor mais a 
-     Taxa e o Coouver
-     */}
+     Final: 1.010.00,00
     </Text>
    </View>
   </View>
@@ -91,8 +80,6 @@ const styles = StyleSheet.create({
  container: {
   flex: 1,
   backgroundColor: '#f2f2f2',
-  // borderBottomWidth: 2,
-  // borderColor: '#cecece',
   padding: 2,
   width: '99%'
  },
@@ -100,7 +87,8 @@ const styles = StyleSheet.create({
   flexDirection: 'row'
  },
  mesaRigth: {
-  left: 255
+  left: 255,
+  justifyContent: 'flex-start'
  },
  comandaCard: {
   flexDirection: 'row',

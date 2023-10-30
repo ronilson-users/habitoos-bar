@@ -33,6 +33,7 @@ function PedidosMesaScreen({ route }) {
    );
 
    // Após a resposta bem-sucedida, você pode atualizar o estado do seu aplicativo, como lista de mesas, conforme necessário.
+   
    console.log(
     'Mesa criada com sucesso:',
     response.data
@@ -71,7 +72,7 @@ function PedidosMesaScreen({ route }) {
 
     <View>
      
-  <CriarComanda />
+  <Comanda />
     </View>
    </View>
   );

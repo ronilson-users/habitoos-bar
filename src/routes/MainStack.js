@@ -5,7 +5,7 @@ import React from 'react';
 import {
  View,
  Text,
- StyleSheet
+ S1tyleSheet
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -21,6 +21,10 @@ import PedidoComanda from
 '../screens/Apps/User/PedidoComanda';
 
 import AbrirMesa from '../screens/Apps/AbrirMesa';
+
+
+import CriarMesa from
+'../screens/Apps/User/CriarMesa'
 
 import MyDraggable from
 '../screens/Apps/Mesa/MyDraggableComponent'
@@ -52,6 +56,10 @@ export default function MainStack() {
    <Drawer.Screen
     name='Abrir Mesa'
     component={AbrirMesa}
+   />
+   <Drawer.Screen
+    name='Criar Mesa'
+    component={CriarMesa}
    />
 
    <Drawer.Screen
