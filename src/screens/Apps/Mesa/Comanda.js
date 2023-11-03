@@ -8,20 +8,24 @@ import {
  Pressable
 } from 'react-native';
 
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 const Comanda = () => {
+ // prover de json
  const listaComanda = [
   {
-   itemComanda: 'Porção de Fritas ',
-   preco: 70.50
+   itemComanda:
+    'Porção de Fritas Acebola Inteira ',
+   preco: 70.5
   },
   {
    itemComanda: 'Coca Cola 2l',
-   preco: 10.50
+   preco: 10.5
   },
   {
    itemComanda: 'Bife A cavala',
-   preco: 120.50
-  },
+   preco: 120.5
+  }
   // Adicione outros itens à lista com seus preços
  ];
 
@@ -68,8 +72,7 @@ const Comanda = () => {
      DESCRIÇÃO
     </Text>
 
-    <Text style={styles.headerTitle}>
-    PREÇO</Text>
+    <Text style={styles.headerTitle}>PREÇO</Text>
    </View>
 
    {listaComanda.map((item, index) => (
@@ -84,7 +87,12 @@ const Comanda = () => {
        onPress={() =>
         handleDecreaseItem(item.itemComanda)
        }>
-       <Text style={styles.controlButtonMenos}>-</Text>
+       <Ionicons
+        name='remove-outline'
+        size={20}
+        color='#fff'
+        style={styles.controlButtonMenos}
+       />
       </Pressable>
       <Text style={styles.quantityText}>
        {quantidadeItens[item.itemComanda] || 0}
@@ -93,7 +101,12 @@ const Comanda = () => {
        onPress={() =>
         handleContIten(item.itemComanda)
        }>
-       <Text style={styles.controlButtonMais }>+</Text>
+       <Ionicons
+        name='add-outline'
+        size={18}
+        color='#fff'
+        style={styles.controlButtonMais}
+       />
       </Pressable>
      </View>
      <Text style={styles.comandaPreco}>
@@ -123,20 +136,19 @@ const styles = StyleSheet.create({
   borderBottomWidth: 1,
   borderColor: '#cecece',
   padding: 2,
-  fontWeight: 'bold',
+  
  },
  comandaCard: {
   flexDirection: 'row',
   margin: 5,
   borderBottomWidth: 1,
   borderColor: '#cecece',
-  width: 350,
+  width: 300,
   justifyContent: 'space-between',
   padding: 2
  },
  comandaTitle: {
-  width: 200,
-  fontWeight: 'bold',
+  width: 180,
   
  },
  comandaPreco: {
@@ -146,42 +158,38 @@ const styles = StyleSheet.create({
  quantityControls: {
   flexDirection: 'row',
   alignItems: 'center',
-  gap: 14
+  gap: 10
  },
  controlButtonMais: {
-  fontSize: 25,
-  marginRight: 10,
-  color: 'green',
+  backgroundColor: 'green',
   borderColor: '#cecece',
-  borderWidth :1,
-  borderRadius:5,
-  padding :5,
-  alignItems : 'center',
-  height:35,
-  gap : 2,
-  width :35,
-  textAlign : 'center'
+  borderWidth: 1,
+  borderRadius: 5,
+  padding: 7,
+  alignItems: 'center',
+  height: 30,
+  width: 30
  },
  controlButtonMenos: {
-  fontSize: 30,
-  marginRight: 10,
-  color: 'red',
+  backgroundColor: 'red',
   borderColor: '#cecece',
-  borderWidth :1,
-  borderRadius:5,
-  padding :5,
-  alignItems : 'center',
-  height:35,
-  gap : 2,
-  width :35,
-  textAling : 'center'
+  borderWidth: 1,
+  borderRadius: 5,
+  padding: 7,
+  alignItems: 'center',
+  height: 30,
+  width: 30
  },
  quantityText: {
   fontSize: 16
  },
  totalContainer: {
+	 top : 15,
   alignItems: 'flex-end',
-  padding: 10
+  padding: 10,
+  borderColor: '#cecece',
+  borderWidth: 1,
+  borderRadius: 5,
  },
  totalText: {
   fontWeight: 'bold',

@@ -1,7 +1,3 @@
-/**
- *  @tester
- *  @format
- */
 
 import {
  Pressable,
@@ -18,7 +14,7 @@ import Toast from 'react-native-root-toast';
 import QRCode from 'react-native-qrcode-svg';
 import { useState, useEffect } from 'react';
 
-export default function SaveQrcode() {
+export default function GerarQrcode() {
  const [QR, setQR] = useState('');
  const [input, setInput] = useState('');
  const [QRref, setQRref] = useState();

@@ -13,27 +13,27 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { NavigationContainer } from '@react-navigation/native';
 
+// Home MainStack
 import HomeScreen from '../screens/Home/HomeScreen';
 
+// Pedido da MesaScreen
 import PedidosMesaScreen from '../screens/Apps/Mesa/PedidosMesaScreen';
 
-import PedidoComanda from
-'../screens/Apps/User/PedidoComanda';
+// Pedido da Comanda
+import PedidoComanda from '../screens/Apps/User/PedidoComanda';
 
+// Abrir a Mesa
 import AbrirMesa from '../screens/Apps/AbrirMesa';
 
+// Criar a Mesa
+import CriarMesa from '../screens/Apps/User/CriarMesa';
 
-import CriarMesa from
-'../screens/Apps/User/CriarMesa'
+// Criar a Comanda
+import CriarComanda from '../screens/Apps/Mesa/CriarComanda';
 
-import MyDraggable from
-'../screens/Apps/Mesa/MyDraggableComponent'
+import MyDraggable from '../screens/Apps/Mesa/MyDraggableComponent';
 
-import CriarComanda from
-'../screens/Apps/Mesa/CriarComanda'
-
-
-
+// Drawer Customizada
 import CustomDrawer from './CustomDrawer';
 
 const Drawer = createDrawerNavigator();

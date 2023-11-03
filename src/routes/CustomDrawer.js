@@ -1,7 +1,7 @@
-/** @format */
+/** @format
+CustomDrawer
 
-// CustomDrawer
-
+*/
 import React from 'react';
 import {
  View,
@@ -21,22 +21,26 @@ const CustomDrawer = ({ navigation }) => {
  return (
   <View style={styles.container}>
    <View style={styles.imageDrawer}>
+    {/*Avatar do Garcon */}
     <Image
      source={require('../assets/image/avatar.png')}
      style={styles.image}
     />
+
+    {/*Nome do Garcon */}
     <Text style={styles.drawerTextPerfil}>
-     Ronilson
+     Ronilson {''}
     </Text>
    </View>
 
+   {/*Menu Lateral */}
    <View style={styles.drawerBar}>
     <TouchableOpacity
      onPress={() => navigateToScreen('Home')}>
      <View style={styles.drawerItem}>
       <Ionicons
        name='home'
-       size={18}
+       size={15}
        color='#fcfcfc'
        style={styles.drawerIcon}
       />
@@ -52,7 +56,16 @@ const CustomDrawer = ({ navigation }) => {
       Abrir Mesa
      </Text>
     </TouchableOpacity>
-    
+
+    <TouchableOpacity
+     onPress={() =>
+      navigateToScreen('Criar Mesa')
+     }>
+     <Text style={styles.drawerText}>
+      Criar Mesa
+     </Text>
+    </TouchableOpacity>
+
     <TouchableOpacity
      onPress={() =>
       navigateToScreen('Criar Mesa')
