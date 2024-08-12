@@ -19,8 +19,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 // import DetailsScreen from './src/screens/DetailsScreen';
 
  import HomeScreen from '../../screens/Home';
-import HomeScreen from
-'../../screens/Home';
+
 // import SettingsScreen from './src/screens/SettingsScreen';
 
 // import SignIn from '../../screens/User/SignInScreen';

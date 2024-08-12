@@ -13,13 +13,10 @@ import {
 import axios from 'axios';
 
 
-import { NavigationContainer } from '@react-navigation/native';
-
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const SignIn = ({ navigation }) => {
+const SignInScreen = ({ navigation }) => {
 
 
   const [email, setEmail] = React.useState('');
@@ -32,7 +29,7 @@ const SignIn = ({ navigation }) => {
 
   // Se o usuarios nao for crendenciados ele e direcionafo pra o cadastro
   const handleCadastrar = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate("SignUpScreen");
   };
 
   // Funcao para realizar o login
@@ -80,7 +77,7 @@ const SignIn = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <View style={styles.formContainer}>
+      <View style={styles.signContainer}>
 
         <TextInput
           style={styles.input}
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#273747', // Cor de fundo do contêiner
   },
-  formContainer: {
+  signContainer: {
     flex: 1,
     padding: 20,
     top: 150,
@@ -166,4 +163,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignIn;
+export default SignInScreen;

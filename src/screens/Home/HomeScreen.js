@@ -22,6 +22,8 @@ const usuarioLogado = {
 };
 
 export default function HomeScreen({}) {
+ 
+ 
  const handlerAbrirPedidos = async () => {
   alert('Inserir Pedido');
   try {
@@ -48,6 +50,7 @@ export default function HomeScreen({}) {
    console.error('Erro ao criar a mesa:', error);
   }
  };
+ 
 
  return (
   <View style={styles.container}>

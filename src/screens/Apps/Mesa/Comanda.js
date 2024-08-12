@@ -29,13 +29,13 @@ const Comanda = () => {
   // Adicione outros itens à lista com seus preços
  ];
 
- const [quantidadeItens, setQuantidadeItens] =
+ const [qtdItens, SetQtdItens] =
   useState({});
  const [totalComanda, setTotalComanda] =
   useState(0);
 
  const handleContIten = (itemComanda) => {
-  setQuantidadeItens((prevQuantidadeItens) => ({
+  SetQtdItens((prevQuantidadeItens) => ({
    ...prevQuantidadeItens,
    [itemComanda]:
     (prevQuantidadeItens[itemComanda] || 0) + 1
@@ -49,8 +49,8 @@ const Comanda = () => {
  };
 
  const handleDecreaseItem = (itemComanda) => {
-  if (quantidadeItens[itemComanda] > 0) {
-   setQuantidadeItens((prevQuantidadeItens) => ({
+  if (qtdItens[itemComanda] > 0) {
+   SetQtdItens((prevQuantidadeItens) => ({
     ...prevQuantidadeItens,
     [itemComanda]:
      prevQuantidadeItens[itemComanda] - 1
@@ -95,7 +95,7 @@ const Comanda = () => {
        />
       </Pressable>
       <Text style={styles.quantityText}>
-       {quantidadeItens[item.itemComanda] || 0}
+       {qtdItens[item.itemComanda] || 0}
       </Text>
       <Pressable
        onPress={() =>

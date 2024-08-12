@@ -9,14 +9,12 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-
 import axios from 'axios';
 
 const SignUp = ({ navigation }) => {
   
 const [email, setEmail] = useState('');
-const [cpf, setCPF] = useState('');
+const [cpf, setCpf] = useState('');
 const [password, setPassword] = useState('');
 const [errorMessage, setErrorMessage] = useState('');
 const [successMessage, setSuccessMessage] = useState('');
@@ -47,7 +45,7 @@ return;
 
 // verificar se o cpf e email ja estao cadastrados e informar ao usuário antes de iniciar o  insert
 
-const response = await axios.post('http://localhost:4000/auth/registrar', {
+const response = await axios.post('http://localhost:4000/auth/register', {
 cpf: cleanedCpf,
 email: cleanedEmail,
 password
@@ -92,7 +90,7 @@ return (
   <TextInput
   style={styles.input}
   placeholder="Digite Seu CPF"
-  onChangeText={text => setCPF(text)}
+  onChangeText={text => setCpf(text)}
   value={cpf}
   keyboardType="numeric"
   />
